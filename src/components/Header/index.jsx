@@ -1,12 +1,13 @@
 import { NavLink, Link } from 'react-router-dom'
 import '../../styles/header.css'
+import logo from '../../assets/logo.svg'
 
 function Header() {
     return (
         <header>
             <div>
                 <Link to="/">
-                    <img src="" alt="Logo SportSee" className="header-logo" />
+                    <img src={logo} alt="Logo SportSee" className="header-logo" />
                 </Link>
             </div>
             <nav>

@@ -1,0 +1,37 @@
+.side-menu-container {
+    width: 120px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem 0;
+    align-items: center;
+}
+
+.side-menu-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.side-menu-container button {
+    background-color: white;
+    padding: .8rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+.side-menu-container span {
+    margin-top: 6rem;
+    color: white;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
