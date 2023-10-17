@@ -1,0 +1,62 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    width: 1240px;
+    margin: auto;
+    background-color: black;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+nav ul li {
+    font-size: 24px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+}
+
+nav ul li a:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    animation: underline 0.3s ease-in-out forwards;
+}
+
+@keyframes underline {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.header-logo {
+    max-width: 200px;
+}
+
+.active {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-position: under;
+}
