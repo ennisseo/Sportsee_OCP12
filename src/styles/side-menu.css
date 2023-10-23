@@ -3,7 +3,7 @@
     background-color: black;
     display: flex;
     flex-direction: column;
-    padding: 10rem 0;
+    padding: 12rem 0;
     align-items: center;
 }
 
@@ -18,15 +18,20 @@
 
 .side-menu-container button {
     background-color: white;
-    padding: .8rem;
+    padding: .6rem;
     border-radius: 6px;
     border: none;
     cursor: pointer;
 }
 
+.side-menu-container button:hover {
+    transform: scale(1.03);
+    transition: .2s;
+}
+
 .icon {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 }
 
 .side-menu-container span {

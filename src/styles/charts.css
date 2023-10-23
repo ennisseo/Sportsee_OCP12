@@ -1,0 +1,75 @@
+/* linechart */
+
+.line-chart-container {
+    margin: 20px;
+    background-color: red;
+    border-radius: 5px;
+    padding: 2rem 0;
+    height: 260px;
+    width: 30%;
+}
+
+.custom-tooltip {
+    background: white;
+    padding: 0 .8rem;
+    border: 1px solid #ffffff;
+    font-size: 8px;
+}
+
+.duration-chart-title {
+    color: white;
+    opacity: 0.7;
+    margin: 0 1.5rem;
+}
+
+/* radialbarchart */
+
+.radial-bar-chart-container {
+    margin: 20px;
+    border-radius: 5px;
+    background-color: rgb(231, 231, 231);
+    height: 260px;
+    width: 30%;
+}
+
+/* radialbarchart */
+
+.radar-chart-container {
+    background-color: grey;
+    margin: 20px;
+    border-radius: 5px;
+    height: 260px;
+    width: 30%;
+}
+
+/* barchart */
+
+.bar-chart-container {
+    margin: 20px;
+    border-radius: 5px;
+    height: 320px;
+    width: 95%;
+    background-color: #FBFBFB;
+    padding: 2rem;
+}
+
+.custom-tooltip-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: red;
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 8px;
+}
+
+/* infocard */
+
+.infocard {
+    background-color: #FBFBFB;
+    height: 25%;
+    width: 260px;
+    margin: 2rem 0;
+}

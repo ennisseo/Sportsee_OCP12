@@ -1,3 +1,39 @@
 .app-container {
     display: flex;
+    width: 100%;
+}
+
+.content-container {
+    width: 100%;
+    margin: 2rem 5rem;
+}
+
+.mini-charts-container {
+    display: flex;
+}
+
+.main-layout {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.left-layout {
+    width: 75%;
+}
+
+.right-layout {
+    width: 25%;
+    display: flex;
+    height: 100%;
+}
+
+
+h1 span {
+    color: red;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 18px;
 }
