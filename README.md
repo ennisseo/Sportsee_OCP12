@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Sportsee
 
 This repository contains the code for frontend components for the new user profile page on Sportsee website.
