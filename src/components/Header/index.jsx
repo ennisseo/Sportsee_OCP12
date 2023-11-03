@@ -12,12 +12,10 @@ function Header() {
             </div>
             <nav>
                 <ul>
-                    <li><NavLink to="/" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }>Accueil</NavLink></li>
-                    <li><NavLink to="/about">Profil</NavLink></li>
-                    <li><NavLink to="/reglage">Réglage</NavLink></li>
-                    <li><NavLink to="/communaute">Communauté</NavLink></li>
+                    <li><NavLink to="/">Accueil</NavLink></li>
+                    <li><NavLink to="/">Profil</NavLink></li>
+                    <li><NavLink to="/">Réglage</NavLink></li>
+                    <li><NavLink to="/">Communauté</NavLink></li>
                 </ul>
             </nav>
         </header>

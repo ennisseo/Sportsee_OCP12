@@ -1,8 +1,8 @@
 /* linechart */
 
 .line-chart-container {
-    margin: 20px;
-    background-color: red;
+    background: rgb(255, 0, 0);
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 70%, rgb(202, 0, 0) 70%);
     border-radius: 5px;
     padding: 2rem 0;
     height: 260px;
@@ -25,18 +25,16 @@
 /* radialbarchart */
 
 .radial-bar-chart-container {
-    margin: 20px;
     border-radius: 5px;
-    background-color: rgb(231, 231, 231);
+    background-color: #FBFBFB;
     height: 260px;
     width: 30%;
 }
 
-/* radialbarchart */
+/* radarchart */
 
 .radar-chart-container {
-    background-color: grey;
-    margin: 20px;
+    background-color: #282D30;
     border-radius: 5px;
     height: 260px;
     width: 30%;
@@ -45,10 +43,9 @@
 /* barchart */
 
 .bar-chart-container {
-    margin: 20px;
+    /* margin: 0 20px 20px 0; */
     border-radius: 5px;
     height: 320px;
-    width: 95%;
     background-color: #FBFBFB;
     padding: 2rem;
 }
@@ -67,9 +64,68 @@
 
 /* infocard */
 
+.infocards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
 .infocard {
     background-color: #FBFBFB;
     height: 25%;
-    width: 260px;
-    margin: 2rem 0;
+    width: 75%;
+    display: flex;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.infocard-img {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    z-index: 2;
+}
+
+.infocard-icon-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    margin: 1rem;
+}
+
+.infocard-icon-container.first {
+    background-color: #ff000010;
+}
+
+.infocard-icon-container.second {
+    background-color: #4ab7ff10;
+}
+
+.infocard-icon-container.third {
+    background-color: #f9ce2310;
+}
+
+.infocard-icon-container.fourth {
+    background-color: #fd518210;
+}
+
+.infocard-text-container {
+    margin: 1rem;
+}
+
+.infocard-text-container p {
+    margin: 0;
+}
+
+.infocard-text-container p:first-of-type {
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.infocard-text-container p:last-of-type {
+    font-size: 14px;
+    color: #74798C;
 }

@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RadialBarChart, RadialBar, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import '../../styles/charts.css'
+import {
+    getUser,
+} from '../../services/apiService.js';
 
-const data = [
-    { name: 'score', uv: 12 },
-];
+// Choose between userId 18 or 12 (current mocked users on the API)
+function ScoreChart({ userId = 18 }) {
+    const [userScore, setUserScore] = useState(null);
 
-const ScoreChart = () => {
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const scoreData = await getUser(userId);
+                setUserScore(scoreData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        fetchData();
+    }, [userId]);
+
     return (
         <div className="radial-bar-chart-container">
             <ResponsiveContainer width="100%" height="100%">
                 <RadialBarChart
-                    data={data}
+                    data={[{ todayScore: userScore ? userScore.todayScore : 0 }]}
                     innerRadius="70%"
                     outerRadius="70%"
                     barSize={10}
@@ -19,7 +34,7 @@ const ScoreChart = () => {
                     endAngle={450}
                     isAnimationActive={true}
                 >
-                    <text x={30} y={40}>
+                    <text x={30} y={40} fontWeight={500}>
                         Score
                     </text>
                     <svg viewBox="0 0 100 100" fill="white">
@@ -27,7 +42,7 @@ const ScoreChart = () => {
                     </svg>
                     <RadialBar
                         label={false}
-                        dataKey="uv"
+                        dataKey="todayScore"
                         cornerRadius={5}
                         isAnimationActive={true}
                         fill="red"
@@ -40,7 +55,7 @@ const ScoreChart = () => {
                     />
                     <text textAnchor="middle">
                         <tspan x="50%" y="50%" textAnchor="middle" opacity="1" fontSize={25} fontWeight={700}>
-                            {data[0].uv} %
+                            {userScore ? userScore.todayScore : []} %
                         </tspan>
                         <tspan x="50%" y="58%" textAnchor="middle" opacity="0.5">
                             de votre
@@ -53,6 +68,7 @@ const ScoreChart = () => {
             </ResponsiveContainer>
         </div>
     );
+
 };
 
 export default ScoreChart;

@@ -1,3 +1,15 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
 .app-container {
     display: flex;
     width: 100%;
@@ -5,11 +17,13 @@
 
 .content-container {
     width: 100%;
-    margin: 2rem 5rem;
+    margin: 1rem 0 0 1rem;
 }
 
 .mini-charts-container {
     display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
 }
 
 .main-layout {
@@ -26,8 +40,8 @@
     width: 25%;
     display: flex;
     height: 100%;
+    margin-left: 1%;
 }
-
 
 h1 span {
     color: red;
@@ -35,5 +49,6 @@ h1 span {
 
 h2 {
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
 }

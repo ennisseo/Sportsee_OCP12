@@ -1,31 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis, Bar, Legend, Tooltip, Rectangle } from 'recharts';
 import '../../styles/charts.css'
-
-const sessions = [
-    { day: 1, kilogram: 70, calories: 500 },
-    { day: 2, kilogram: 71, calories: 600 },
-    { day: 3, kilogram: 68, calories: 356 },
-    { day: 4, kilogram: 69, calories: 550 },
-    { day: 5, kilogram: 69, calories: 550 },
-    { day: 6, kilogram: 69, calories: 550 },
-    { day: 7, kilogram: 69, calories: 550 },
-    { day: 8, kilogram: 69, calories: 550 },
-    { day: 9, kilogram: 69, calories: 550 },
-    { day: 10, kilogram: 69, calories: 550 }
-];
+import {
+    getUserActivity,
+} from '../../services/apiService.js';
 
 const CustomCursor = ({ x, y, width, height }) => {
     if (width) width = width / 2
+    const screenOffset = window.innerWidth * 0.03;
     return (
         <Rectangle
             fill="rgba(0,0,0,0.15)"
             strokeWidth={15}
-            x={x}
+            x={x + screenOffset}
             y={y}
             width={width}
             height={height}
-            transform='translate(25, 0)'
         />
     );
 };
@@ -42,7 +32,23 @@ const CustomToolTip = ({ active, payload }) => {
     return null;
 };
 
-const DailyChart = () => {
+// Choose between userId 18 or 12 (current mocked users on the API)
+function DailyChart({ userId = 18 }) {
+    const [userActivity, setUserActivity] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const activityData = await getUserActivity(userId);
+                setUserActivity(activityData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        fetchData();
+    }, [userId]);
+
     const formatXAxis = (i) => i + 1;
 
     return (
@@ -50,7 +56,7 @@ const DailyChart = () => {
             <span className="activityTitle">Activité quotidienne</span>
             <ResponsiveContainer width={'99%'} >
                 <BarChart
-                    data={sessions}
+                    data={userActivity ? userActivity.sessions : []}
                     margin={{ top: 65, right: 30, bottom: 10, left: -20 }}
                     barGap={8}
                 >
@@ -110,7 +116,6 @@ const DailyChart = () => {
                         wrapperStyle={{ top: 0, right: 16 }}
                     />
                     <Tooltip
-                        label={sessions}
                         cursor={<CustomCursor width={120} />}
                         wrapperStyle={{ top: -40 }}
                         content={<CustomToolTip active={false} />}
@@ -119,6 +124,7 @@ const DailyChart = () => {
                 </BarChart>
             </ResponsiveContainer>
         </div>
+
     )
 };
 

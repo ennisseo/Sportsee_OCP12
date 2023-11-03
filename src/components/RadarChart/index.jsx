@@ -1,15 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RadarChart, PolarGrid, PolarRadiusAxis, Radar, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import '../../styles/charts.css'
-
-const data = [
-    { kind: 'Intensité', value: 25 },
-    { kind: 'Vitesse', value: 95 },
-    { kind: 'Force', value: 50 },
-    { kind: 'Endurance', value: 80 },
-    { kind: 'Energie', value: 80 },
-    { kind: 'Cardio', value: 40 }
-];
+import {
+    getUserPerformance,
+} from '../../services/apiService.js';
 
 const CustomTick = ({ payload, x, y, textAnchor, stroke }) => {
     if (y) y = y + 3
@@ -31,11 +25,27 @@ const CustomTick = ({ payload, x, y, textAnchor, stroke }) => {
     );
 };
 
-const DetailsChart = () => {
+// Choose between userId 18 or 12 (current mocked users on the API)
+function DetailsChart({ userId = 18 }) {
+    const [userPerformance, setUserPerformance] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const performanceData = await getUserPerformance(userId);
+                setUserPerformance(performanceData);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        fetchData();
+    }, [userId]);
+
     return (
         <div className="radar-chart-container">
             <ResponsiveContainer width={'100%'}>
-                <RadarChart outerRadius={85} data={data}>
+                <RadarChart outerRadius={85} data={userPerformance ? userPerformance.performance : []}>
                     <PolarGrid radialLines={false} />
                     <PolarAngleAxis
                         dataKey="kind"

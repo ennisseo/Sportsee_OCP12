@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header';
-import './styles/global.css'
+import './styles/layout.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
