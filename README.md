@@ -21,4 +21,3 @@ To set up the frontend, follow these steps:
     `npm start`
 
 You should now be able to access the site by going to http://localhost:3000 in your web browser.
->>>>>>> 7fbe8944daec3ba5a45d431d30d91fd2cac36f76
